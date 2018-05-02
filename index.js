@@ -101,7 +101,7 @@ const init = async () => {
   }
 
 
-  client.login(client.config.token);
+  client.login(process.env.TOKEN);
 };
 
 init();
