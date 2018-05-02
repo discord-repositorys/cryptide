@@ -37,7 +37,7 @@ const removeCooldown = ((userId, timeInSeconds) => {
   }
 });
 
-mongoose.connect('mongodb://cryptide:cryptideisthebest@ds153869.mlab.com:53869/cryptide');
+mongoose.connect(process.env.MONGODB);
 
 client.on("guildCreate", guild => {
   console.log(`Someone added Cryptide to their discord! ${guild.name} Member count: ${guild.memberCount}!`)
