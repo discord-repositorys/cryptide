@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js");
 const { MessageAttachment } = require("discord.js");
 exports.run = async (client, message, args, level) => {
     await message.channel.send(new MessageAttachment(
-        await client.API.triggered(message.mentions.users.first().displayAvatarURL({ format: "gif", size: 128 })),
+        await client.API.triggered(message.mentions.users.first().displayAvatarURL({ format: "png", size: 128 })),
         "triggered.gif"));
     }
 
