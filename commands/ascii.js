@@ -6,8 +6,9 @@ exports.run = async (client, message, args, tools) => {
   if (!args.join(' ')) return message.channel.send('Please, provide text to format in ASCII! Usage: ascii <text>').then(msg => msg.delete({timeout: 10000})); 
     figlet(args.join(' '), (err, data) => {
       message.channel.send('```' + data + '```')
-    })
+    });
 };
+
 exports.conf = {
     aliases: [],
     permLevel: 0
