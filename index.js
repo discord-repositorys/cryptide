@@ -10,7 +10,6 @@ client.API = new Idiot.Client(process.env.IDIOTIC, { dev: true });
 const fs = require("fs")
 const moment = require('moment');
 const mongoose = require('mongoose');
-client.commands = new Discord.Collection()
 require("./modules/functions.js")(client);
 
 function clean(text) {
