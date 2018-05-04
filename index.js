@@ -38,6 +38,10 @@ const removeCooldown = ((userId, timeInSeconds) => {
 });
 
 mongoose.connect(process.env.MONGODB);
+client.db = mongoose.connection;
+client.db.once("open", () => console.log("Connected to MongoDB"));
+client.db.on("error", (err) => console.error(err));
+// TODO, use mongodb for configs etc
 
 client.on("guildCreate", guild => {
   console.log(`Someone added Cryptide to their discord! ${guild.name} Member count: ${guild.memberCount}!`)
@@ -48,7 +52,8 @@ client.on('guildDelete', guild => {
   console.log(`Someone removed Cryptide to their discord! ${guild.name} Member count: ${guild.memberCount}!`)
   client.user.setActivity(`d.help - In ${client.guilds.size} guilds!`)
 });
-client.on("ready", async () => {
+
+client.on("ready", () => {
   console.log(`
 #####{ Bot Ready! }#####
 Users: ${client.user.tag}
@@ -56,10 +61,8 @@ Bot Id: ${client.user.id}
 Servers: ${client.guilds.size}
 Users: ${client.users.size}
 ########################`.trim());
-});
-client.on('ready', () => {
   console.log("Cryptide is in: " + client.guilds.size + " servers.");
-  client.user.setActivity(`d.help - In ${client.guilds.size} guilds!`)
+  client.user.setActivity(`d.help - In ${client.guilds.size} guilds!`);
 });
 
 client.config = require("./config.js");
