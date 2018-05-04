@@ -1,5 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const Discord = require("discord.js");
+
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
     let user = message.mentions.users.first();
     if (message.mentions.users.size < 1) return message.reply('You must mention someone to get their avatar. :x:').catch(console.error);
@@ -11,13 +12,13 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 };
 
 exports.conf = {
-    aliases: [],
-    permLevel: 0
-  };
+  aliases: [],
+  permLevel: 0
+};
   
-  exports.help = {
-    name: 'avatar',
-    category: "Misc",
-    description: 'Get someones avatar.',
-    usage: 'avatar'
-  };
+exports.help = {
+  name: 'avatar',
+  category: "Misc",
+  description: 'Get someones avatar.',
+  usage: 'avatar'
+};
