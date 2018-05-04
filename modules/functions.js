@@ -89,6 +89,11 @@ module.exports = (client) => {
     delete require.cache[require.resolve(`../commands/${commandName}.js`)];
     return false;
   };
+  
+  client.validateThrottle = (message, level) => {
+    if (client.blacklist.has(`${message.guild.id}-${message.author.id}`)) {
+      return [false, "blacklisted"];
+    }
 
 
   String.prototype.toProperCase = function() {
