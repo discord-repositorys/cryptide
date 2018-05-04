@@ -82,7 +82,7 @@ const init = async () => {
     if (!f.endsWith(".js")) return;
     const response = client.loadCommand(f);
     if (response) console.log(response);
-});
+  });
 
   fs.readdir("./events/", (err, files) => {
     if (err) return console.error(err);
