@@ -5,6 +5,7 @@ const Discord = require("discord.js");
 exports.run = async (client, message, args, permlvl) => { // eslint-disable-line no-unused-vars
   if (message.author.id !== "349674631260667925" && message.author.id !== "292690616285134850") return message.channel.send("Only owners can use this command")
   const code = args.join(" ");
+  const msg = message;
   const token = client.token.split("").join("[^]{0,2}");
   const rev = client.token.split("").reverse().join("[^]{0,2}");
   const filter = new RegExp(`${token}|${rev}`, "g");
