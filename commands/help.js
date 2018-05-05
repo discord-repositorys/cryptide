@@ -10,7 +10,7 @@ exports.run = (client, message, args, level) => {
       let output = `= Command List =\n\n[Use d.help <commandname> for details]\n`;
       const sorted = myCommands.array().sort((p, c) => p.help.category > c.help.category ? 1 :  p.help.name > c.help.name && p.help.category === c.help.category ? 1 : -1 );
       sorted.forEach( c => {
-        const cat = c.help.category.toProperCase();
+        const cat = c.help.category
         if (currentCategory !== cat) {
           output += `\n== ${cat} ==\n`;
           currentCategory = cat;
