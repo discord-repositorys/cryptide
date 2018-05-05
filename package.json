@@ -37,6 +37,7 @@
     "fortnite": "^4.1.1",
     "request": "^2.85.0",
     "minimist": "^1.2.0",
-    "parse-ms": "^1.0.1"
+    "parse-ms": "^1.0.1",
+    "cleverbot.io": "^1.0.4"
   }
 }
