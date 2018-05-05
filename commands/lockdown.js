@@ -61,3 +61,17 @@ exports.run = (client, message, args) => {
         console.log(error)
     }
 };
+
+exports.conf = {
+    enabled: true,
+    guildOnly: true,
+    aliases: [],
+    permLevel: "User"
+  };
+  
+  exports.help = {
+    name: "lockdown",
+    category: "Moderation",
+    description: "lockdown a channel.",
+    usage: "lockdown"
+  };
