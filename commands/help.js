@@ -15,7 +15,7 @@ exports.run = (client, message, args, level) => {
           output += `\n== ${cat} ==\n`;
           currentCategory = cat;
         }
-        output += `${settings.prefixes[0]}${c.help.name}${" ".repeat(longest - c.help.name.length)} :: ${c.help.description}\n`;
+        output += `d.${c.help.name}${" ".repeat(longest - c.help.name.length)} :: ${c.help.description}\n`;
       });
       message.channel.send(output, {code:"asciidoc"});
     } else {
