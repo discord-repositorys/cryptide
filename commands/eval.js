@@ -13,7 +13,7 @@ exports.run = async (client, message, args, permlvl) => { // eslint-disable-line
     let output = eval(code);
     if (output instanceof Promise || (Boolean(output) && typeof output.then === "function" && typeof output.catch === "function")) output = await output;
     output = inspect(output, { depth: 0, maxArrayLength: null });
-    output = output.replace(filter, "Banana boi is gay");
+    output = output.replace(filter, "py bad");
     output = clean(output);
     if (output.length < 1950) {
       message.channel.send(`\`\`\`js\n${output}\n\`\`\``);
