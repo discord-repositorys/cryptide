@@ -8,6 +8,7 @@ exports.run = async (client, message, args, level) => {
       type: "basic",
       token: process.env.GITHUBAPI
     });
+Buffer.from(process.env.GITHUBLOGIN).toString("base64");
     
     // Get latest commits from Github
         let commitsPretty = '';
