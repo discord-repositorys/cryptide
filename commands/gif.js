@@ -9,7 +9,7 @@ exports.run = (client, message, args, level) => {
           var embed = new MessageEmbed()
               .setColor(`#${randomcolor}`)
               .setImage(gifUrl)
-          message.author.send(embed);
+          message.channel.send(embed);
       });
     }
 exports.conf = {
