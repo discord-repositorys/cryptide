@@ -1,8 +1,8 @@
 const { MessageEmbed } = require("discord.js");
 const discord = require ("discord.js");
-const UserInfo = new MessageEmbed()
 
 exports.run = (client, message, args, level) => {
+    const UserInfo = new MessageEmbed()
 .setAuthor(message.author.username, message.author.avatarURL())
 .setTitle('UserInfo')
 .setImage(message.author.avatarURL()) 
@@ -33,8 +33,7 @@ exports.run = (client, message, args, level) => {
 .setFooter('Requested By', message.author.tag) 
 .setTimestamp() 
 message.channel.send(UserInfo);
-   }
-});
+   };
 exports.conf = {
     enabled: true,
     guildOnly: false,
