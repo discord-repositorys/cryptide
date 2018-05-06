@@ -3,10 +3,7 @@ const discord = require ("discord.js");
 
 exports.run = (client, message, args, level) => {
     const UserInfo = new MessageEmbed()
-.setAuthor(message.author.username, message.author.avatarURL())
 .setTitle('UserInfo')
-.setImage(message.author.avatarURL()) 
-.setThumbnail(message.author.avatarURL())
 
 
 .addField('Avatar', message.author.avatar, true) 
