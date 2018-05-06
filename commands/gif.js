@@ -11,6 +11,18 @@ exports.run = (client, message, args, level) => {
               .setImage(gifUrl)
           message.author.send(embed);
       });
-
+    }
+exports.conf = {
+    enabled: true,
+    guildOnly: false,
+    aliases: [],
+    permLevel: "User"
+  };
   
-  }
+  exports.help = {
+    name: "gif",
+    description: "Search for a gif.",
+    category: "Fun",
+    usage: "gif"
+  };
+  
