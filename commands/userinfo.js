@@ -7,7 +7,6 @@ exports.run = (client, message, args, level) => {
 .addField('Bot', message.author.bot, true)
 .addField('Created At', message.author.createdAt, false) 
 .addField('Discrim', message.author.discriminator, true) 
-.addField('DMChannel', message.author.dmChannel) 
 .addField('ID', message.author.id) 
 .addField('Last Message', message.author.lastMessage)
 .addField('Last Message ID', message.author.lastMessageID)
