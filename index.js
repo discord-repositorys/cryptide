@@ -38,6 +38,15 @@ const removeCooldown = ((userId, timeInSeconds) => {
   }
 });
 
+client.on('guildMemberAdd', member => {
+  member.guild.channels.get('442755866182287390').setName(`Total Users: ${member.guild.memberCount}`);
+});
+
+client.on('guildMemberRemove', member => {
+  member.guild.channels.get('442755866182287390').setName(`Total Users: ${member.guild.memberCount}`);
+});
+//cool thing for my server
+
 mongoose.connect(process.env.MONGODB);
 client.db = mongoose.connection;
 client.db.once("open", () => console.log("Connected to MongoDB"));
