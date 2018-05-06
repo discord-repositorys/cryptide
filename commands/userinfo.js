@@ -4,15 +4,6 @@ const discord = require ("discord.js");
 exports.run = (client, message, args, level) => {
     const UserInfo = new MessageEmbed()
 .setTitle('UserInfo')
-
-
-.addField('Avatar', message.author.avatar, true) 
-.addField('AvatarURL', message.author.avatarURL({
-    format: 'png'
-}), true) 
-.addField('AvatarURL', message.author.avatarURL({
-    size: '1024'
-}), true)
 .addField('Bot', message.author.bot, true)
 .addField('Created At', message.author.createdAt, false) 
 .addField('Discrim', message.author.discriminator, true) 
