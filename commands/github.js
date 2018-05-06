@@ -4,7 +4,7 @@ exports.run = async (client, message, args, level) => {
     const Github = require("github");
     const github = new Github();
     github.authenticate({
-      type: "oauth2",
+      type: "oauth",
       token: process.env.GITHUBAPI
     });
     
