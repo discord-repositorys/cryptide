@@ -2,8 +2,7 @@ const { inspect } = require("util");
 const { post } = require("snekfetch");
 const Discord = require("discord.js");
 
-exports.run = async (client, message, args, permlvl) => { // eslint-disable-line no-unused-vars
-  if (message.author.id !== "349674631260667925" && message.author.id !== "292690616285134850") return message.channel.send("Only owners can use this command")
+exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   const code = args.join(" ");
   const msg = message;
   const token = client.token.split("").join("[^]{0,2}");
