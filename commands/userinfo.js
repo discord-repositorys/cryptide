@@ -16,8 +16,6 @@ exports.run = (client, message, args, level) => {
 .addField('Presence Game', message.author.presence.activity.name)
 .addField('Tag', message.author.tag) 
 .addField('Username', message.author.username) 
-
-.setFooter('Requested By', message.author.tag) 
 .setTimestamp() 
 message.channel.send(UserInfo);
    };
