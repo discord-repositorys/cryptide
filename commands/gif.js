@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-
+const gifSearch = require("gif-search");
 exports.run = (client, message, args, level) => {
 
       gifSearch.random(args[0]).then(
