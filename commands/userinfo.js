@@ -11,7 +11,7 @@ exports.run = (client, message, args, level) => {
     format: 'png'
 }), true) 
 .addField('AvatarURL', message.author.avatarURL({
-    size: '2048'
+    size: '1024'
 }), true)
 .addField('Bot', message.author.bot, true)
 .addField('Created At', message.author.createdAt, false) 
