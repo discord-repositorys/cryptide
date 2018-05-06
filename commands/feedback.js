@@ -33,7 +33,7 @@ message.reply("Thanks for choosing to give feedback it has been sent!")
 
 exports.conf = {
     aliases: [],
-    permLevel: 0
+    permLevel: "User"
   };
   
   exports.help = {

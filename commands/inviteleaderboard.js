@@ -37,7 +37,7 @@ send(message.channel, embed, {
 
 exports.conf = {
     aliases: [],
-    permLevel: 0
+    permLevel: "Server Owner"
 };
       
 exports.help = {

@@ -13,7 +13,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 
 exports.conf = {
   aliases: [],
-  permLevel: 0
+  permLevel: "User"
 };
   
 exports.help = {

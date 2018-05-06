@@ -22,7 +22,7 @@ exports.run = async (client, message, args, level) => {
 
 exports.conf = {
   aliases: [],
-  permLevel: 0
+  permLevel: "User"
 };
   
 exports.help = {

@@ -25,7 +25,7 @@ exports.run = (client, message, args) => {
 
 exports.conf = {
   aliases: [],
-  permLevel: 0
+  permLevel: "User"
 };
 
 exports.help = {
