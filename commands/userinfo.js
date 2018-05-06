@@ -1,4 +1,5 @@
 const { MessageEmbed } = require("discord.js");
+const discord = require ("discord.js");
 client.on('message', message => {
 const UserInfo = new MessageEmbed()
 

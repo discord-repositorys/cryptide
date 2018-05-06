@@ -1,7 +1,7 @@
 const discord = require ("discord.js");
 const { MessageEmbed } = require("discord.js");
 
-exports.run = async (bot, msg, args) => {
+exports.run = async (client, msg, args) => {
 
 	 let sa = require ("superagent");
 
