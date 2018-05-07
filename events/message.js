@@ -10,6 +10,11 @@ module.exports = async(client, message) => {
 
   // Grab the settings for this server from Enmap.
   // If there is no guild, get default conf (DMs)
+
+  if(message.content.match(new RegExp(`^<@!?${client.user.id}>$`))) {
+    message.channel.send(":angeryping~3: BAH! Why you :regional_indicator_p:ing me? Anyway, I'm Cryptide, so nice to meet you. I do a LOT of kewl stuff, like Canvas, and so much more! All it takes is d.help to see the powers I got! :DealWithIt~2:")
+} 
+  
   let prefix;
   try {
     if(!message.guild) prefix = "d.";
@@ -59,9 +64,7 @@ message.prefix = prefix;
     }
   }
 
-  if(message.content.match(new RegExp(`^<@!?${client.user.id}>$`))) {
-    message.channel.send(":angeryping~3: BAH! Why you :regional_indicator_p:ing me? Anyway, I'm Cryptide, so nice to meet you. I do a LOT of kewl stuff, like Canvas, and so much more! All it takes is d.help to see the powers I got! :DealWithIt~2:")
-  }
+
 
   // To simplify message arguments, the author's level is now put on level (not member so it is supported in DMs)
   // The "level" command module argument will be deprecated in the future.
