@@ -3,7 +3,7 @@ exports.run = (client, message, args) => {
   if (!args[0]) {
     const commandNames = Array.from(client.commands.keys());
     const longest = commandNames.reduce((long, str) => Math.max(long, str.length), 0);
-    message.channel.send(`[Cryptide Commands]\n\n[Use d.help <command> for information!]\n\n${client.commands.map(c => `${message.prefix}${c.help.name}${' '.repeat(longest - c.help.name.length)} :: ${c.help.description}`).join('\n')}`, {code: 'ini'}, { split: "\n" });
+    message.channel.send(`[Cryptide Commands]\n\n[Use d.help <command> for information!]\n\n${client.commands.map(c => `${message.prefix}${c.help.name}${' '.repeat(longest - c.help.name.length)} :: ${c.help.description}`).join('\n')}`, {code: 'ini'} , { split: "\n" });
   } else {
     let command = args[0];
     if (client.commands.has(command)) {
