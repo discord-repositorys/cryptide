@@ -14,7 +14,7 @@ module.exports = async(client, message) => {
   try {
     if(!message.guild) prefix = "d.";
     else { // ugly af if/else lol
-      const g = Prefix.findById(message.guild.id);
+      const g = await Prefix.findById(message.guild.id);
       if(g && g.prefix) prefix = g.prefix;
       else prefix = "d.";
     }
