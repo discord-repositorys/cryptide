@@ -21,6 +21,7 @@ module.exports = async(client, message) => {
   } catch(err) {
     console.error(err);
   }
+message.prefix = prefix;
 
   // Also good practice to ignore any message that does not start with our prefix,
   // which is set in the configuration file.
