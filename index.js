@@ -78,6 +78,8 @@ client.commands = new Discord.Collection()
 client.aliases = new Discord.Collection()
 client.settings = new Discord.Collection()
 
+
+
 const init = async () => {
 
   const cmdFiles = await readdir("./commands/");
@@ -105,7 +107,10 @@ const init = async () => {
     const thisLevel = client.config.permLevels[i];
     client.levelCache[thisLevel.name] = thisLevel.level;
   }
-
+  
+if(message.content.match(new RegExp(`^<@!?${client.user.id}>$`))) {
+    ":angeryping~3: BAH! Why you :regional_indicator_p:ing me? Anyway, I'm Cryptide, so nice to meet you. I do a LOT of kewl stuff, like Canvas, and so much more! All it takes is d.help to see the powers I got! :DealWithIt~2:"
+}
 
   client.login(process.env.TOKEN);
 };
