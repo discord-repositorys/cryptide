@@ -1,4 +1,4 @@
-const Prefix = require("../models/prefix.js");
+const Prefix = require("../models/guild.js");
 // The MESSAGE event runs anytime a message is received
 // Note that due to the binding of client to every event, every event
 // goes `client, other, args` when this function is run.
