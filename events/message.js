@@ -1,4 +1,4 @@
-const Prefix = require("../models/prefix.js");
+const Prefix = require("../models/guild.js");
 // The MESSAGE event runs anytime a message is received
 // Note that due to the binding of client to every event, every event
 // goes `client, other, args` when this function is run.
@@ -17,9 +17,9 @@ module.exports = async(client, message) => {
       const g = Prefix.findById(message.guild.id);
       if(g && g.prefix) prefix = g.prefix;
       else prefix = "d.";
-    } catch(err) {
-      console.error(err);
     }
+  } catch(err) {
+    console.error(err);
   }
 
   // Also good practice to ignore any message that does not start with our prefix,
