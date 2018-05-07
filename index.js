@@ -75,7 +75,7 @@ client.logger = require("./util/Logger");
 require("./modules/functions.js")(client);
 
 client.commands = new Discord.Collection()
-client.asiases = new Discord.Collection()
+client.aliases = new Discord.Collection()
 client.settings = new Discord.Collection()
 
 const init = async () => {
