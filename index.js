@@ -109,7 +109,7 @@ const init = async () => {
   }
   
 if(message.content.match(new RegExp(`^<@!?${client.user.id}>$`))) {
-    ":angeryping~3: BAH! Why you :regional_indicator_p:ing me? Anyway, I'm Cryptide, so nice to meet you. I do a LOT of kewl stuff, like Canvas, and so much more! All it takes is d.help to see the powers I got! :DealWithIt~2:"
+message.channel.send(":angeryping~3: BAH! Why you :regional_indicator_p:ing me? Anyway, I'm Cryptide, so nice to meet you. I do a LOT of kewl stuff, like Canvas, and so much more! All it takes is d.help to see the powers I got! :DealWithIt~2:")
 }
 
   client.login(process.env.TOKEN);
