@@ -3,17 +3,9 @@ const client = new Discord.Client();
 const Prefix = require("../models/guild.js");
 const ping = client.emojis.find("name", "angeryping");
 const deal = client.emojis.find("name", "DealWithIt");
-// The MESSAGE event runs anytime a message is received
-// Note that due to the binding of client to every event, every event
-// goes `client, other, args` when this function is run.
 
 module.exports = async(client, message) => {
-  // It's good practice to ignore other bots. This also makes your bot ignore itself
-  // and not get into a spam loop (we call that "botception").
   if (message.author.bot) return;
-
-  // Grab the settings for this server from Enmap.
-  // If there is no guild, get default conf (DMs)
 
   if(message.content.match(new RegExp(`^<@!?${client.user.id}>$`))) {
     message.channel.send("BAH! Why you :regional_indicator_p:ing me? Anyway, I'm Cryptide, so nice to meet you. I do a LOT of kewl stuff, like Canvas, and so much more! All it takes is `d.help` to see the powers I got!")
