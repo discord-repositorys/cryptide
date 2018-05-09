@@ -11,6 +11,7 @@ module.exports = async(client, message) => {
     message.channel.send("BAH! Why you :regional_indicator_p:ing me? Anyway, I'm Cryptide, so nice to meet you. I do a LOT of kewl stuff, like Canvas, and so much more! All it takes is `d.help` to see the powers I got!")
 } 
   
+
   let prefix;
   try {
     if(!message.guild) prefix = "d.";
