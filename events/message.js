@@ -8,7 +8,7 @@ module.exports = async(client, message) => {
   if (message.author.bot) return;
 
   if(message.content.match(new RegExp(`^<@!?${client.user.id}>$`))) {
-    message.channel.send(`${ping} BAH! Why you :regional_indicator_p:ing me? Anyway, I'm Cryptide, so nice to meet you. I do a LOT of kewl stuff, like Canvas, and so much more! All it takes is d.help to see the powers I got! ${deal}`)
+    message.channel.send("BAH! Why you :regional_indicator_p:ing me? Anyway, I'm Cryptide, so nice to meet you. I do a LOT of kewl stuff, like Canvas, and so much more! All it takes is `d.help` to see the powers I got!")
 } 
   
   let prefix;
