@@ -16,8 +16,6 @@ exports.run = async (client, message, args, level) => {
 
   // Now, we can form the response embed
   const embed = new MessageEmbed()
-    .setColor('RANDOM') 
-    .setTitle(res.word) 
     .setUrl(res.urbanURL)
     .setDescription(`**Definition:**\n*${res.definition}*\n\n**Example:**\n*${res.example}*`) 
     .setField('Author', res.author, true) 
