@@ -41,6 +41,7 @@
     "cleverbot.io": "^1.0.4",
     "gif-search": "^2.0.1",
     "github": "^13.0.1",
-    "memejs": "^1.0.7"
+    "memejs": "^1.0.7",
+    "relevant-urban": "^2.0.0"
   }
 }
