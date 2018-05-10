@@ -1,6 +1,8 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const { promisify } = require("util");
+const { stringify } = require('querystring');
+const { request } = require('https');
 const readdir = promisify(require("fs").readdir);
 let cooldownUsers = [];
 const webhooks4discord = require("webhooks4discord");
@@ -11,6 +13,7 @@ const fs = require("fs")
 const moment = require('moment');
 const mongoose = require('mongoose');
 require("./modules/functions.js")(client);
+
 
 
 
@@ -55,6 +58,26 @@ client.on('guildDelete', guild => {
   console.log(`Someone removed Cryptide to their discord! ${guild.name} Member count: ${guild.memberCount}!`)
   client.user.setActivity(`d.help - In ${client.guilds.size} guilds!`)
 });
+
+
+
+const update = () => {
+  const data = stringify({ server_count: client.guilds.size });
+  const req = request({
+    host: 'discordbots.org',
+    path: `/api/bots/${client.user.id}/stats`,
+    method: 'POST',
+    headers: {
+      'Authorization': process.env.DBLAPI,
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Content-Length': Buffer.byteLength(data)
+    }
+  });
+  req.write(data);
+  req.end();
+};
+
+client.on('ready', update);
 
 client.on("ready", () => {
   console.log(`
@@ -107,7 +130,7 @@ const init = async () => {
     const thisLevel = client.config.permLevels[i];
     client.levelCache[thisLevel.name] = thisLevel.level;
   }
-  
+
 
   client.login(process.env.TOKEN);
 };

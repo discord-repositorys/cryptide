@@ -4,7 +4,7 @@ const { MessageAttachment } = require("discord.js");
 exports.run = async (client, message, args, level) => {
     await message.channel.send(new MessageAttachment(
         await client.API.respect(message.mentions.users.first().displayAvatarURL({ format: "png", size: 128 })),
-        "bobross.png"));
+        "respect.png"));
     }
 
 

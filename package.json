@@ -42,6 +42,7 @@
     "gif-search": "^2.0.1",
     "github": "^13.0.1",
     "memejs": "^1.0.7",
-    "relevant-urban": "^2.0.0"
+    "relevant-urban": "^2.0.0",
+    "https": "^1.0.0"
   }
 }
