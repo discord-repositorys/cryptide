@@ -47,7 +47,7 @@ mongoose.connect(process.env.MONGODB);
 client.db = mongoose.connection;
 client.db.once("open", () => console.log("Connected to MongoDB"));
 client.db.on("error", (err) => console.error(err));
-// TODO, use mongodb for configs etc
+// TODO, use mongodb for configs etc done :)
 
 client.on("guildCreate", guild => {
   console.log(`Someone added Cryptide to their discord! ${guild.name} Member count: ${guild.memberCount}!`)
