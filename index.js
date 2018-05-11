@@ -132,8 +132,8 @@ const init = async () => {
     const thisLevel = client.config.permLevels[i];
     client.levelCache[thisLevel.name] = thisLevel.level;
   }
-  
-  client.on("ready", () => {
+
+client.on("ready", async() => {
     const g = await Guild.find({}).exec();
     const c = client.guilds.array(); // All guilds bot is in.
     c.forEach(x => {
