@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
+const settings = require("../config.js")
 const Prefix = require("../models/guild.js");
 const ping = client.emojis.find("name", "angeryping");
 const deal = client.emojis.find("name", "DealWithIt");
