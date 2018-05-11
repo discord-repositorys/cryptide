@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const { promisify } = require("util");
 const { stringify } = require('querystring');
+const guild = require('/models/guildCreate.js')
 const { request } = require('https');
 const readdir = promisify(require("fs").readdir);
 let cooldownUsers = [];
@@ -47,7 +48,6 @@ mongoose.connect(process.env.MONGODB);
 client.db = mongoose.connection;
 client.db.once("open", () => console.log("Connected to MongoDB"));
 client.db.on("error", (err) => console.error(err));
-// TODO, use mongodb for configs etc done :)
 
 client.on("guildCreate", guild => {
   console.log(`Someone added Cryptide to their discord! ${guild.name} Member count: ${guild.memberCount}!`)
@@ -76,6 +76,21 @@ const update = () => {
   req.write(data);
   req.end();
 };
+client.on("ready", () => {
+ const g = await Guild.find({}).exec();
+ const c = client.guilds.array(); // All guilds bot is in.
+ c.forEach(x => {
+   if(!g.find(v => v.id === x.id)) { // bot joined a server while offline or this is first start.
+     const v = new Guild({ _id: x.id, prefix: "d.", });
+     // add default guild configs.
+     v.save((e) => {
+       if(e) client.logger.error(e);
+       else client.logger.log(`Found a server without config, added default settings: ${x.name} (${x.id})`);
+     });
+   }
+ });
+})
+
 
 client.on('ready', update);
 
