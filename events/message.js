@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const settings = require("/../config.js")
+const settings = require("/config.js")
 const Prefix = require("../models/guild.js");
 const ping = client.emojis.find("name", "angeryping");
 const deal = client.emojis.find("name", "DealWithIt");
@@ -53,13 +53,11 @@ message.prefix = prefix;
     return message.channel.send("This command is unavailable via private message. Please run this command in a guild.");
 
   if (level < client.levelCache[cmd.conf.permLevel]) {
-    if (settings.systemNotice === "true") {
       return message.channel.send(`You do not have permission to use this command.
   Your permission level is ${level} (${client.config.permLevels.find(l => l.level === level).name})
   This command requires level ${client.levelCache[cmd.conf.permLevel]} (${cmd.conf.permLevel})`);
     } else {
       return;
-    }
   }
 
 
