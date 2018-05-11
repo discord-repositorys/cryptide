@@ -139,7 +139,7 @@ client.on("ready", async() => {
     const c = client.guilds.array(); // All guilds bot is in.
     c.forEach(x => {
       if(!g.find(v => v.id === x.id)) { // bot joined a server while offline or this is first start.
-        const v = new Guild({ _id: x.id, prefix: "d.", });
+        const v = new Guild({ _id: x.id, prefix: String, });
         // add default guild configs.
         v.save((e) => {
           if(e) client.logger.error(e);
