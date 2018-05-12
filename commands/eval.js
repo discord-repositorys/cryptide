@@ -50,6 +50,7 @@ exports.run = async (client, message, args, level) => {
                 .setTitle('EVAL SUCCESS')
                 .addField('INPUT :outbox_tray:', `\`\`\`xl\n${code}\n\`\`\``)
                 .addField('OUTPUT :outbox_tray:', `\`\`\`xl\n${clean(evaled)}\n\`\`\``)
+                .setColor('#199b00')
                 .setTimestamp()
                 .setThumbnail(client.user.avatarURL());
             message.channel.send({
