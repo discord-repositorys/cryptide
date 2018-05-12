@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client({ disableEveryone: true, disabledEvents: ["TYPING_START", "TYPING_STOP", "GUILD_SYNC", "RELATIONSHIP_ADD", "RELATIONSHIP_REMOVE", "USER_SETTINGS_UPDATE", "USER_NOTE_UPDATE"], reconnect: true }); //ice
 const { promisify } = require("util");
 const { stringify } = require('querystring');
-const guild = require('./models/guild.js');
+const Guild = require('./models/guild.js');
 const { request } = require('https');
 const readdir = promisify(require("fs").readdir);
 let cooldownUsers = [];
@@ -138,7 +138,7 @@ client.on("ready", async() => {
     const g = await Guild.find({}).exec();
     const c = client.guilds.array(); // All guilds bot is in.
     c.forEach(x => {
-      if(!g.find(v => v._id === x.id)) { // bot joined a server while offline or this is first start.
+      if(!(g.find(v => v._id === x.id))) { // bot joined a server while offline or this is first start.
         const v = new Guild({ _id: x.id, prefix: "d.", });
         // add default guild configs.
         v.save((e) => {

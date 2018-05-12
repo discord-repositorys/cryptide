@@ -5,7 +5,6 @@ const GuildSchema = new mongoose.Schema({
   prefix: { type: String, required: true }
 });
 
-// name has to be singular, mongoose will make it plural
-// and create a collection.
+
 const guildModel = mongoose.model("guild", GuildSchema);
 module.exports = guildModel;
