@@ -48,8 +48,8 @@ exports.run = async (client, message, args, level) => {
 
             const succembed = new MessageEmbed()
                 .setTitle('EVAL SUCCESS')
-                .addField('INPUT <:input:372482332067758082>', `\`\`\`xl\n${code}\n\`\`\``)
-                .addField('OUTPUT <:output:372482366372839435>', `\`\`\`xl\n${clean(evaled)}\n\`\`\``)
+                .addField('INPUT :outbox_tray:', `\`\`\`xl\n${code}\n\`\`\``)
+                .addField('OUTPUT :outbox_tray:', `\`\`\`xl\n${clean(evaled)}\n\`\`\``)
                 .setTimestamp()
                 .setThumbnail(client.user.avatarURL());
             message.channel.send({
@@ -59,8 +59,8 @@ exports.run = async (client, message, args, level) => {
             if (!err) return;
             const errembed = new MessageEmbed()
                 .setTitle('**__EVAL ERROR__**')
-                .addField('INPUT <:input:372482332067758082>', `\`\`\`${code}\`\`\``)
-                .addField('OUTPUT <:output:372482366372839435>', `\`\`\`xl\n${clean(err)}\n\`\`\``)
+                .addField('INPUT :inbox_tray:', `\`\`\`${code}\`\`\``)
+                .addField('OUTPUT :outbox_tray:', `\`\`\`xl\n${clean(err)}\n\`\`\``)
                 .setColor('#ff0000')
                 .setTimestamp()
                 .setThumbnail(client.user.avatarURL());
