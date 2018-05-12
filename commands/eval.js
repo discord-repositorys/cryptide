@@ -73,7 +73,7 @@ exports.run = async (client, message, args, level) => {
 
 exports.conf = {
     aliases: [],
-    permLevel: "User"
+    permLevel: "Bot Admin"
   };
         
   exports.help = {
