@@ -48,7 +48,7 @@ exports.run = async (client, message, args, level) => {
 
             const succembed = new MessageEmbed()
                 .setTitle('EVAL SUCCESS')
-                .addField('INPUT :outbox_tray:', `\`\`\`xl\n${code}\n\`\`\``)
+                .addField('INPUT :inbox_tray:', `\`\`\`xl\n${code}\n\`\`\``)
                 .addField('OUTPUT :outbox_tray:', `\`\`\`xl\n${clean(evaled)}\n\`\`\``)
                 .setColor('#199b00')
                 .setTimestamp()
