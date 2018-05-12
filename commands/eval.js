@@ -1,45 +1,83 @@
-const { inspect } = require("util");
-const { post } = require("snekfetch");
-const Discord = require("discord.js");
+const { MessageEmbed } = require("discord.js");
+var PastebinAPI = require('pastebin-js'),
+    pastebin = new PastebinAPI({
+        'api_dev_key': process.env.PASTEBIN_API_KEY
+    });
 
-exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
-  const code = args.join(" ");
-  const msg = message;
-  const token = client.token.split("").join("[^]{0,2}");
-  const rev = client.token.split("").reverse().join("[^]{0,2}");
-  const filter = new RegExp(`${token}|${rev}`, "g");
-  try {
-    let output = eval(code);
-    if (output instanceof Promise || (Boolean(output) && typeof output.then === "function" && typeof output.catch === "function")) output = await output;
-    output = inspect(output, { depth: 0, maxArrayLength: null });
-    output = output.replace(filter, "py bad");
-    output = clean(output);
-    if (output.length < 1950) {
-      message.channel.send(`\`\`\`js\n${output}\n\`\`\``);
-    } else {
-    	  message.channel.send(`${output}`, {split:"\n", code:"js"});
+exports.run = async (client, message, args, level) => {
+    const Discord = require('discord.js');
+    const code = args.join(' ');
+
+    function clean(text) {
+        if (typeof (text) === 'string') {
+            return text.replace(/`/g, '`' + String.fromCharCode(8203)).replace(/@/g, '@' + String.fromCharCode(8203));
+        } else {
+            return text;
+        }
     }
-  } catch (error) {
-    message.channel.send(`The following error occured \`\`\`js\n${error}\`\`\``);
- }
+        try {
+            let evaled = eval(code);
 
-  function clean(text)  {
-    return text
-      .replace(/`/g, "`" + String.fromCharCode(8203))
-      .replace(/@/g, "@" + String.fromCharCode(8203));
-  }
+            if (typeof evaled !== 'string') {
+                evaled = require('util').inspect(evaled);
+            }
+
+            if (evaled.length >= 1024) {
+                pastebin
+                    .createPaste(clean(evaled), 'eval.js')
+                    .then((data) => {
+                        message.channel.send(data);
+                    })
+                    .fail(function(err) {
+                        console.log(err);
+                    });
+                evaled = 'Output large, sent to pastebin.';
+            }
+
+            if (evaled.length >= 2000) {
+                pastebin
+                    .createPaste(clean(evaled), 'eval.js')
+                    .then((data) => {
+                        message.channel.send(data);
+                    })
+                    .fail(function(err) {
+                        console.log(err);
+                    });
+                evaled = 'Output large, sent to pastebin.';
+            }
+
+            const succembed = new MessageEmbed()
+                .setTitle('EVAL SUCCESS')
+                .addField('INPUT <:input:372482332067758082>', `\`\`\`xl\n${code}\n\`\`\``)
+                .addField('OUTPUT <:output:372482366372839435>', `\`\`\`xl\n${clean(evaled)}\n\`\`\``)
+                .setTimestamp()
+                .setThumbnail(client.user.avatarURL());
+            message.channel.send({
+                embed: succembed,
+            });
+        } catch (err) {
+            if (!err) return;
+            const errembed = new MessageEmbed()
+                .setTitle('**__EVAL ERROR__**')
+                .addField('INPUT <:input:372482332067758082>', `\`\`\`${code}\`\`\``)
+                .addField('OUTPUT <:output:372482366372839435>', `\`\`\`xl\n${clean(err)}\n\`\`\``)
+                .setColor('#ff0000')
+                .setTimestamp()
+                .setThumbnail(client.user.avatarURL());
+            msg.channel.send({
+                embed: errembed,
+            });
+        }
 };
 
 exports.conf = {
-  enabled: true,
-  guildOnly: false,
-  aliases: [],
-  permLevel: "Bot Admin"
-};
-
-exports.help = {
-  name: "eval",
-  description: "Evaluates javascript.",
-  category: "Owner",
-  usage: "eval [code]"
-};
+    aliases: [],
+    permLevel: "User"
+  };
+        
+  exports.help = {
+    name: 'eval',
+    category: "Owner",
+    description: 'Eval.',
+    usage: 'eval code'
+  };
