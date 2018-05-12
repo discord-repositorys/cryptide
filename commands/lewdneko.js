@@ -3,7 +3,7 @@ const superagent = require("superagent");
 const send = require("quick.hook");
 const { MessageEmbed } = require("discord.js");
 
-module.exports.run = async (client, message, args) => {
+exports.run = async (client, message, args) => {
 
     let {body} = await superagent
     .get(`https://nekos.life/api/lewd/neko`);
