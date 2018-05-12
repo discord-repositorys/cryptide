@@ -64,7 +64,7 @@ exports.run = async (client, message, args, level) => {
                 .setColor('#ff0000')
                 .setTimestamp()
                 .setThumbnail(client.user.avatarURL());
-            msg.channel.send({
+            message.channel.send({
                 embed: errembed,
             });
         }
