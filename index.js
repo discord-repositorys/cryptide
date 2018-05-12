@@ -134,20 +134,20 @@ const init = async () => {
     client.levelCache[thisLevel.name] = thisLevel.level;
   }
 
-//client.on("ready", async() => {
-//    const g = await Guild.find({}).exec();
-//    const c = client.guilds.array(); // All guilds bot is in.
-//    c.forEach(x => {
-//      if(!g.find(v => v.id === x.id)) { // bot joined a server while offline or this is first start.
-//        const v = new Guild({ _id: x.id, prefix: "d.", });
-//        // add default guild configs.
-//        v.save((e) => {
-//          if(e) client.logger.error(e);
-//          else client.logger.log(`Found a server without config, added default settings: ${x.name} (${x.id})`);
-//        });
-//      }
-//    });
-//   })
+client.on("ready", async() => {
+    const g = await Guild.find({}).exec();
+    const c = client.guilds.array(); // All guilds bot is in.
+    c.forEach(x => {
+      if(!g.find(v => v.id === x.id)) { // bot joined a server while offline or this is first start.
+        const v = new Guild({ _id: x.id, prefix: "d.", });
+        // add default guild configs.
+        v.save((e) => {
+          if(e) client.logger.error(e);
+          else client.logger.log(`Found a server without config, added default settings: ${x.name} (${x.id})`);
+        });
+      }
+    });
+   })
 
 
   client.login(process.env.TOKEN);
