@@ -45,6 +45,7 @@
     "relevant-urban": "^2.0.0",
     "https": "^1.0.0",
     "pastebin-js": "^0.5.1",
-    "canvas-constructor": "^1.0.1"
+    "canvas-constructor": "^1.0.1",
+    "canvas": "^1.6.10"
   }
 }
