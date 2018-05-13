@@ -79,7 +79,7 @@ class Drawing {
         if (rid < 4) this.movePen(rid);
         else if (rid === 4) this.stop();
         else this.togglePenstate();
-        reaction.remove(reaction.users.last()).catch(e => {
+        reaction.users.remove(reaction.users.last()).catch(e => {
             if (e.code === 50013) reaction.message.channel.send("I need the 'Manage Messages' permission in order to work properly!");
         });
         this.drawCanvas();
