@@ -15,7 +15,7 @@ exports.conf = {
 };
       
 exports.help = {
-    name: 'challelger',
+    name: 'challenger',
     category: "Image Manipulation",
     description: 'Make someone a challenger',
     usage: 'challenger <user>'
