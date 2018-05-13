@@ -48,7 +48,7 @@
     "node-waf": "^1.0.0",
     "node-gyp": "^3.6.2",
     "canvas-prebuilt": "^1.6.5-prerelease.1",
-    "kyranet": "canvasConstructor#master-dev"
+    "canvas-constructor-prebuilt": "kyranet/canvasConstructor#master-dev"
   }
 }
 
