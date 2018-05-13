@@ -60,7 +60,7 @@ class Drawing {
         this.collector.stop();
         this.drawCanvas(true);
         this.msg.edit("Thanks for drawing with us!" + reason);
-        this.msg.clearReactions();
+        this.msg.reactions.clear();
         this.msg.client.clearTimeout(this.timeout);
         channels = channels.filter(item => item !== this.msg.channel.id);
     }
