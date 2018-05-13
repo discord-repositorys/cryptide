@@ -48,7 +48,7 @@
     "node-waf": "^1.0.0",
     "node-gyp": "^3.6.2",
     "node-canvas-heroku": "CyRIC21/node-canvas-heroku",
-    "canvas-constructor-prebuilt": "^1.0.1"
+    "canvas-constructor-prebuilt": "^0.4.0"
   }
 }
 
