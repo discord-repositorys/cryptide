@@ -1,4 +1,4 @@
-const { Canvas } = require("canvas-constructor");
+const { Canvas } = require("canvas-constructor-prebuilt");
 
 const zoomfactor = 10;
 const reactions = ["⬅", "➡", "⬆", "⬇", "✅", "🔏", "🖋"];
