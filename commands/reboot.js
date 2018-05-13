@@ -6,7 +6,6 @@ exports.run = async (client, message, args, level) => {// eslint-disable-line no
   process.exit(1);
 };
 
-
 exports.conf = {
   enabled: true,
   guildOnly: false,
