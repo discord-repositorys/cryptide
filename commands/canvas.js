@@ -6,6 +6,7 @@ const zoomfactor = 10;
 const reactions = ["⬅", "➡", "⬆", "⬇", "✅", "🔏", "🖋"];
 let channels = [];
 
+
 /**
  * Executes the command
  * @param {Message} message
