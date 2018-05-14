@@ -48,7 +48,8 @@
     "node-waf": "^1.0.0",
     "node-gyp": "^3.6.2",
     "canvas-prebuilt": "^1.6.5-prerelease.1",
-    "canvas-constructor": "CyRIC21/canvasConstructor#master-dev"
+    "canvas-constructor": "CyRIC21/canvasConstructor#master-dev",
+    "request": "^2.85.0"
   }
 }
 
