@@ -30,6 +30,8 @@ exports.run = async (client, message, args, level) => {
         
         message.channel.send(embed);
 
+        console.log(data);
+
 
     }).catch(e => {
         console.log(e);
